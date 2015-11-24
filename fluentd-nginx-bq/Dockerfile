@@ -7,7 +7,7 @@ FROM ubuntu:14.04
 MAINTAINER ando_masaki-at-cygames.co.jp
 
 # apt-get update
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get -y update && apt-get -y upgrade
 
 # nginx
 RUN apt-get install -y nginx
@@ -17,7 +17,7 @@ ADD nginx.conf /etc/nginx/nginx.conf
 RUN curl -L https://dl.google.com/cloudagents/install-logging-agent.sh | bash
 
 # fluent-plugin-dstat 
-RUN apt-get install dstat
+RUN apt-get install -y dstat
 RUN /opt/google-fluentd/embedded/bin/fluent-gem install fluent-plugin-dstat --no-ri --no-rdoc -V
 
 # fluent-plugin-bigquery
