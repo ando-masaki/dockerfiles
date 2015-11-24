@@ -6,6 +6,9 @@
 FROM ubuntu:14.04
 MAINTAINER ando_masaki-at-cygames.co.jp
 
+# apt-get update
+RUN apt-get update && apt-get -y upgrade
+
 # nginx
 RUN apt-get install -y nginx
 ADD nginx.conf /etc/nginx/nginx.conf
