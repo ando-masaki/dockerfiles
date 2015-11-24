@@ -3,7 +3,7 @@
 # Usage:
 # sudo docker run -e GCP_PROJECT="YOUR_PROJECT_ID" -p 80:80 -t -i -d andomasaki/fluentd-nginx-bq 
 
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 MAINTAINER ando_masaki@cygames.co.jp
 
 # environment
@@ -24,6 +24,10 @@ RUN curl -L http://nginx.org/LICENSE > /nginx-license.txt
 RUN curl -L https://dl.google.com/cloudagents/install-logging-agent.sh | bash
 ADD td-agent.conf /etc/td-agent/td-agent.conf
 RUN curl -L https://raw.githubusercontent.com/fluent/fluentd/master/COPYING > /fluentd-license.txt
+
+# fluent-plugin-dstat 
+RUN apt-get install -y dstat
+RUN /usr/lib/fluent/ruby/bin/fluent-gem install fluent-plugin-dstat --no-ri --no-rdoc -V
 
 # fluent-plugin-bigquery
 RUN /opt/google-fluentd/embedded/bin/fluent-gem install fluent-plugin-bigquery --no-ri --no-rdoc -V
