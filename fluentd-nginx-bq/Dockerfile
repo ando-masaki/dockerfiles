@@ -1,7 +1,7 @@
 # Dockerfile for fluentd + nginx
 #
 # Usage:
-# sudo docker run -e GCP_PROJECT="YOUR_PROJECT_ID" -p 80:80 -t -i -d kazunori279/fluentd-nginx-bq 
+# sudo docker run -e GCP_PROJECT="YOUR_PROJECT_ID" -p 80:80 -t -i -d andomasaki/fluentd-nginx-bq 
 
 FROM ubuntu:14.04
 MAINTAINER ando_masaki-at-cygames.co.jp
