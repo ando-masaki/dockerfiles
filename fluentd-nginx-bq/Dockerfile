@@ -16,7 +16,7 @@ RUN apt-get -y install curl
 RUN apt-get -y install sudo
 
 # nginx
-RUN apt-get install -y nginx
+RUN apt-get -y install nginx
 ADD nginx.conf /etc/nginx/nginx.conf
 RUN curl -L http://nginx.org/LICENSE > /nginx-license.txt
 
@@ -26,7 +26,7 @@ ADD td-agent.conf /etc/td-agent/td-agent.conf
 RUN curl -L https://raw.githubusercontent.com/fluent/fluentd/master/COPYING > /fluentd-license.txt
 
 # fluent-plugin-dstat 
-RUN apt-get install -y dstat
+RUN apt-get -y install dstat
 RUN /usr/lib/fluent/ruby/bin/fluent-gem install fluent-plugin-dstat --no-ri --no-rdoc -V
 
 # fluent-plugin-bigquery
@@ -36,4 +36,3 @@ RUN curl -L https://raw.githubusercontent.com/kaizenplatform/fluent-plugin-bigqu
 # start fluentd and nginx
 EXPOSE 80
 ENTRYPOINT /etc/init.d/td-agent restart && /etc/init.d/nginx start && /bin/bash
-
