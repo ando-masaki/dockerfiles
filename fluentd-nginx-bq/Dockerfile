@@ -36,4 +36,3 @@ RUN curl -L https://raw.githubusercontent.com/kaizenplatform/fluent-plugin-bigqu
 # start fluentd and nginx
 EXPOSE 80
 ENTRYPOINT /etc/init.d/td-agent restart && /etc/init.d/nginx start && /bin/bash
-
