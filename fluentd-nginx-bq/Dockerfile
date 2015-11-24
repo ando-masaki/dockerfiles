@@ -4,7 +4,7 @@
 # sudo docker run -e GCP_PROJECT="YOUR_PROJECT_ID" -p 80:80 -t -i -d andomasaki/fluentd-nginx-bq 
 
 FROM ubuntu:14.04
-MAINTAINER ando_masaki
+MAINTAINER ando_masaki@cygames.co.jp
 
 # environment
 ENV DEBIAN_FRONTEND noninteractive
