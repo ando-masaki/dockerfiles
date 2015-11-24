@@ -14,7 +14,7 @@ RUN apt-get install -y nginx
 ADD nginx.conf /etc/nginx/nginx.conf
 
 # fluentd
-RUN curl -L https://dl.google.com/cloudagents/install-logging-agent.sh | bash
+RUN curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh && bash install-logging-agent.sh
 
 # fluent-plugin-dstat 
 RUN apt-get install -y dstat
