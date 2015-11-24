@@ -25,10 +25,6 @@ RUN curl -L https://dl.google.com/cloudagents/install-logging-agent.sh | bash
 ADD td-agent.conf /etc/td-agent/td-agent.conf
 RUN curl -L https://raw.githubusercontent.com/fluent/fluentd/master/COPYING > /fluentd-license.txt
 
-# fluent-plugin-dstat 
-RUN apt-get install -y dstat
-RUN /opt/google-fluentd/embedded/bin/fluent-gem install fluent-plugin-dstat --no-ri --no-rdoc -V
-
 # fluent-plugin-bigquery
 RUN /opt/google-fluentd/embedded/bin/fluent-gem install fluent-plugin-bigquery --no-ri --no-rdoc -V
 RUN curl -L https://raw.githubusercontent.com/kaizenplatform/fluent-plugin-bigquery/master/LICENSE.txt > fluent-plugin-bigquery-license.txt
